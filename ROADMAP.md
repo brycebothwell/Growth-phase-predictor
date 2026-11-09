@@ -64,3 +64,24 @@ This repository is the GROWTH CURVE CALCULATOR project only. Keep Masters Resear
 The published 1977 Oregon Child Study Clinic report by Jorge Grau provides an **actual male PHV age summary** from 51 boys (mean age 13.54 years, SD 1.12 years, plus an 11-bin age-at-peak distribution). It is now displayed in the [Oregon Data Lab](oregon-data-lab.html) and used only as an **experimental male PHV-age prior** in the main calculator. Source: https://digitalcollections.ohsu.edu/record/1721/files/2424_etd.pdf — see [machine-readable provenance](oregon-published-reference.json).
 
 **The Oregon person-level stature trajectories are NOT yet publicly available in a usable dataset. No Oregon height-by-age rows have been imported and the model is NOT trained/validated on those individual records.** [Blank import schema](oregon-template.csv). Please request the original records from the OHSU/AAOF custodians before a true data-trained version.
+
+## Target product: ONE cephalogram + THREE standing-height observations
+
+**Clinical inference specification (agreed 9 Nov 2026):** one lateral cephalogram, three heights with measurement dates, patient age and sex. Predict the additional Co–Gn and Co–Go growth expected by a clearly defined postpubertal/adult endpoint, plus estimated final length and calibrated 50%/90% prediction intervals. A single ceph at inference is not the same as single ceph in training: training must have cephalometric follow-up outcomes.
+
+For the first version, accept **human-entered measurements** from one ceph (Co–Gn, Co–Go; consider MPA, face heights, and optional CVM); add image upload/auto-landmark tracing only after image calibration, landmark accuracy, privacy, and regulatory evaluation. Compute two intervisit height velocities from three visits, warn when measurements are very closely spaced or inconsistent, and abstain if predictions are not supported. Age/sex are necessary contextual inputs.
+
+### Strong newly published normative cephalometric resource
+
+Oh H et al. (2026), *Craniofacial growth percentile curves: A clinical tool from the Craniofacial Growth Consortium Study*, analyzed **2,100 people and 17,290 longitudinal lateral cephalograms** spanning ages 2.5–31.3 y, with **Co–Gn and Co–Go** among 24 dimensions. See https://pmc.ncbi.nlm.nih.gov/articles/PMC13138386/ and https://www.aaoflegacycollection.org/aaof_craniofacialGrowth.html. The study provides age-/sex-referenced percentile growth curves; those are **not equivalent to individual trained forecasts from one ceph + three heights**. Confirm whether model coefficients/supplementary curves can be reused legally and with correct attribution.
+
+### Mandatory research validation
+
+- Obtain longitudinal *linked* stature and ceph records for the **same participants**. An external height-only cohort (Berkeley) plus an external ceph-only cohort (CGCS) permits separate priors, but cannot measure whether the combined 3-height+ceph input actually improves individual prediction.
+- Determine horizon/endpoints (for example Co–Gn at fixed future ages, not guaranteed biologic "final length"), untreated status, and imaging enlargement correction; do not predict functional appliance effects from untreated controls.
+- Compare three models: age/sex+single ceph; age/sex+three heights; and combined. Include normative CGCS curves as an explicitly labeled baseline/prior where licensed.
+- In validation, show each index case only **one ceph + the three preceding height records**, hold future cephs for outcome truth, and split by participant. Report MAE (mm), prediction-interval coverage, calibration, bias and failure modes; additionally validate in an independent historical cohort if possible.
+- Three heights yield **two observed velocities** and do not uniquely identify the individual's true PHV. Phase probabilities must be calibrated and may require uncertainty/abstention, particularly with short intervals. The AAP discourages over-interpreting intervals under six months: https://eqipp.aap.org/courses/growth2/mn/clinical-guide/popups/growth-velocity
+- **Research-only** until training, validation and ethical requirements are met. No synthetic/unvalidated outputs labeled clinical estimates.
+
+Implementation issue: https://github.com/brycebothwell/Growth-phase-predictor/issues/3
