@@ -58,3 +58,9 @@ This repository is the GROWTH CURVE CALCULATOR project only. Keep Masters Resear
 - Ask for each participant's anonymized study ID, sex, date or precise age at each height observation, standing height and measurement units, and if available Tanner or skeletal maturity annotations. Ask about completeness, digitization, copyright/data-use agreements, authorization to derive and release trained model coefficients.
 - Only use authorized records for analyses and retain deidentified datasets outside this public repository.
 - After obtaining records, assess coverage around pubertal growth, deduplicate visits, flag physiologically implausible intervals, estimate individual PHV retrospectively, then split by subject and validate sparse-history 3/4/5 point predictions before modifying the clinical-facing predictor.
+
+## Oregon Growth Study pilot update (9 Nov 2026)
+
+The published 1977 Oregon Child Study Clinic report by Jorge Grau provides an **actual male PHV age summary** from 51 boys (mean age 13.54 years, SD 1.12 years, plus an 11-bin age-at-peak distribution). It is now displayed in the [Oregon Data Lab](oregon-data-lab.html) and used only as an **experimental male PHV-age prior** in the main calculator. Source: https://digitalcollections.ohsu.edu/record/1721/files/2424_etd.pdf — see [machine-readable provenance](oregon-published-reference.json).
+
+**The Oregon person-level stature trajectories are NOT yet publicly available in a usable dataset. No Oregon height-by-age rows have been imported and the model is NOT trained/validated on those individual records.** [Blank import schema](oregon-template.csv). Please request the original records from the OHSU/AAOF custodians before a true data-trained version.
