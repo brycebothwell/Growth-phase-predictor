@@ -1,0 +1,63 @@
+{
+  "source": {
+    "title": "Timing and Magnitude of the Male Circumpuberal Growth Acceleration of Height, Weight and Several Facial Dimensions",
+    "author": "Jorge Grau M.",
+    "year": 1977,
+    "institution": "University of Oregon School of Dentistry (OHSU digital collections)",
+    "url": "https://digitalcollections.ohsu.edu/record/1721/files/2424_etd.pdf",
+    "page_reference": "Table II and Figure 2",
+    "population": "Selected Oregon Child Study Clinic male participants with adequate circumpubertal records",
+    "number_for_peak_analysis": 51
+  },
+  "measure": "Age at the midpoint of the 6-month interval containing the maximum observed height increment",
+  "mean_age": 13.54,
+  "sd_age": 1.12,
+  "units": "years",
+  "bins": [
+    {
+      "age": "10.5–11.0",
+      "n": 1
+    },
+    {
+      "age": "11.0–11.5",
+      "n": 1
+    },
+    {
+      "age": "11.5–12.0",
+      "n": 2
+    },
+    {
+      "age": "12.0–12.5",
+      "n": 5
+    },
+    {
+      "age": "12.5–13.0",
+      "n": 5
+    },
+    {
+      "age": "13.0–13.5",
+      "n": 12
+    },
+    {
+      "age": "13.5–14.0",
+      "n": 9
+    },
+    {
+      "age": "14.0–14.5",
+      "n": 4
+    },
+    {
+      "age": "14.5–15.0",
+      "n": 8
+    },
+    {
+      "age": "15.0–15.5",
+      "n": 3
+    },
+    {
+      "age": "15.5–16.0",
+      "n": 1
+    }
+  ],
+  "limitations": "Aggregated summary only, no participant-level height histories. Male-only selected historical sample, not representative; not sufficient for trained or validated PHV prediction."
+}
