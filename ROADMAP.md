@@ -67,7 +67,7 @@ The published 1977 Oregon Child Study Clinic report by Jorge Grau provides an **
 
 ## Target product: ONE cephalogram + THREE standing-height observations
 
-**Clinical inference specification (agreed 9 Nov 2026):** one lateral cephalogram, three heights with measurement dates, patient age and sex. Predict the additional Co–Gn and Co–Go growth expected by a clearly defined postpubertal/adult endpoint, plus estimated final length and calibrated 50%/90% prediction intervals. A single ceph at inference is not the same as single ceph in training: training must have cephalometric follow-up outcomes.
+**Clinical inference specification (revised 9 Nov 2026):** at least three heights with measurement dates, patient age and sex; **zero cephalograms** for height-only PHV analysis, or **one or more optional existing lateral cephalograms** for the eventual mandibular growth module. Predict the additional Co–Gn and Co–Go growth expected by a clearly defined postpubertal/adult endpoint, plus estimated final length and calibrated 50%/90% prediction intervals. A single ceph at inference is not the same as single ceph in training: training must have cephalometric follow-up outcomes.
 
 For the first version, accept **human-entered measurements** from one ceph (Co–Gn, Co–Go; consider MPA, face heights, and optional CVM); add image upload/auto-landmark tracing only after image calibration, landmark accuracy, privacy, and regulatory evaluation. Compute two intervisit height velocities from three visits, warn when measurements are very closely spaced or inconsistent, and abstain if predictions are not supported. Age/sex are necessary contextual inputs.
 
@@ -92,10 +92,14 @@ The prototype now accepts **3 or more dated heights** and independently **1 or m
 
 ### Planned evidence-based adaptation to additional observations
 
-- **Base workflow:** exactly 3 dated heights plus 1 existing ceph (age and sex).
+- **Base workflow:** at least 3 dated heights, age and sex. The first ceph is OPTIONAL; 0 cephs means statural growth-phase results only. When a ceph exists, allow 1+ dated ceph records for mandibular modules.
 - **Optional histories:** 4–8+ heights and 2–4+ existing cephs, with irregular visit dates accepted after appropriate quality checks, modality corrections and temporal synchronization.
 - Model needs to **handle missing additional measurements gracefully**, so users with only the minimum aren't excluded, and still use all valid past information available to the prediction date without leaking later outcomes.
 - Validate performance separately in held-out patients with 3, 4, 5, 6+ prior heights and with 1, 2, 3+ prior cephs. Compare incremental mm MAE and calibrated prediction interval coverage vs a constant minimal-input baseline on **the same patients**, to avoid differences in patient selection driving claimed improvement.
 - More points may reduce uncertainty but do **not** guarantee better individual predictions. Scan technique, landmark reproducibility, time gaps, treatment status, radiographic magnification and variable timing matter. Longer observation span can be more informative than simply more closely spaced heights.
 - Future repeated cephs should allow estimating individual observed skeletal growth tempo, in addition to current Co–Gn and Co–Go. Maintain a distinct untreated-versus-treated analysis and update forecasts as new data become clinically available.
 - The current HTML form does not transmit data; no cloud storage, accounts, or patient-record persistence. For future production, add authorized privacy/security and data governance separately.
+
+### Optional cephalogram UX implemented
+
+As of 9 Nov 2026, the cephalometric panel opens collapsed and contains **zero rows** by default. Users may supply no ceph, or add/remove existing ceph measurements (including removal of the last one). The original 3+ heights workflow continues independently and shows stature growth velocity, height curve, and provisional PHV stage as before. One or more optional cephs can be summarized as observed measurements, and two or more can yield historical Co–Gn / Co–Go changes. A combined, validated mandibular forecast remains a future research milestone; ceph observations do not affect the current height-phase calculation.
