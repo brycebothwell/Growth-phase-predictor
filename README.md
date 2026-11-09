@@ -23,4 +23,8 @@ The published 1977 Oregon Child Study Clinic report by Jorge Grau provides an **
 
 ## Flexible clinical input prototype
 
-The [live website](https://brycebothwell.github.io/Growth-phase-predictor/) now supports **3+ dated height observations** plus **1+ optional prior cephalometric measurement sets** (Co–Gn, Co–Go, optional mandibular plane angle). The ceph history summarizes *observed* changes only; a **validated future mandibular forecast is not yet available**. Do not obtain radiographs solely for this research tool. [Evaluation roadmap](ROADMAP.md#flexible-observation-counts-implemented-nov-2026).
+The [live website](https://brycebothwell.github.io/Growth-phase-predictor/) now supports **3+ dated height observations with zero cephalograms required**; an optional collapsed panel accepts **1 or more existing cephalometric measurement sets** (Co–Gn, Co–Go, optional mandibular plane angle). The ceph history summarizes *observed* changes only; a **validated future mandibular forecast is not yet available**. Do not obtain radiographs solely for this research tool. [Evaluation roadmap](ROADMAP.md#flexible-observation-counts-implemented-nov-2026).
+
+### Height-only default
+
+When no cephalometric records are entered, the application continues to provide its original height-velocity intervals, plots and experimental PHV-phase results. Ceph inputs are optional and are not required by the height algorithm. The ceph panel starts collapsed with zero observations. If one or more existing cephs are added, their historical measurements can be summarized separately; **cephs are not yet used in a trained mandibular growth forecast**.
