@@ -46,3 +46,15 @@ MPS/age study 2024: https://pubmed.ncbi.nlm.nih.gov/38311670/
 
 ## Separation and privacy
 This repository is the GROWTH CURVE CALCULATOR project only. Keep Masters Research thesis, ANS, EMG and individual cephalometric research files in their separate project. This repository is PUBLIC; never upload identifiable patient records or restricted cohort data. Confirm IRB and data-use requirements before research with patients.
+
+## Oregon Growth Study data ingestion (added November 2026)
+
+- **[Open local Oregon longitudinal-stature data lab](oregon-data-lab.html)** (works through GitHub Pages at https://brycebothwell.github.io/Growth-phase-predictor/oregon-data-lab.html)
+- **[Blank import CSV schema](oregon-template.csv)**: subject_id,sex,age_years,height_cm. Anonymous subject IDs only; no names or DOB.
+- The AAOF public Legacy Collection serves Oregon cephalograms and mostly cephalometric numerical measurements. It does **not** currently provide a verified downloadable set of participant-level serial standing heights. We have therefore **not trained a stature model on Oregon data**.
+- Historical research describes actual physical measurements including standing height in the Oregon cohort (Savara's Child Clinic Study). These must be requested from the Oregon archive/collection curator before any data-trained output can be produced.
+- Contact AAOF Website Administrator: info@aaoflegacycollection.org; https://www.aaoflegacycollection.org/aaof_aboutsite.html
+- Because this is an OHSU-origin study, inquire through the OHSU Department of Orthodontics about access to original longitudinal stature charts and digitized records. Historic sources identify David A. Covell Jr. as the collection curator; confirm current stewardship before directing the request to a particular person.
+- Ask for each participant's anonymized study ID, sex, date or precise age at each height observation, standing height and measurement units, and if available Tanner or skeletal maturity annotations. Ask about completeness, digitization, copyright/data-use agreements, authorization to derive and release trained model coefficients.
+- Only use authorized records for analyses and retain deidentified datasets outside this public repository.
+- After obtaining records, assess coverage around pubertal growth, deduplicate visits, flag physiologically implausible intervals, estimate individual PHV retrospectively, then split by subject and validate sparse-history 3/4/5 point predictions before modifying the clinical-facing predictor.
