@@ -85,3 +85,17 @@ Oh H et al. (2026), *Craniofacial growth percentile curves: A clinical tool from
 - **Research-only** until training, validation and ethical requirements are met. No synthetic/unvalidated outputs labeled clinical estimates.
 
 Implementation issue: https://github.com/brycebothwell/Growth-phase-predictor/issues/3
+
+## Flexible observation counts (implemented Nov 2026)
+
+The prototype now accepts **3 or more dated heights** and independently **1 or more dated lateral-ceph measurement sets** (Co–Gn, Co–Go and optionally mandibular plane angle). The patient can add or remove observations, summarize *observed* cephalometric changes in mm/year when 2+ cephs exist, and export ceph measurements as CSV. At present, ceph data are for descriptive history only and do **not** affect the experimental statural-PHV output. The mandibular forecast has NOT been trained or released. Never take additional cephalograms solely to improve this research prototype; use existing clinically justified radiographs.
+
+### Planned evidence-based adaptation to additional observations
+
+- **Base workflow:** exactly 3 dated heights plus 1 existing ceph (age and sex).
+- **Optional histories:** 4–8+ heights and 2–4+ existing cephs, with irregular visit dates accepted after appropriate quality checks, modality corrections and temporal synchronization.
+- Model needs to **handle missing additional measurements gracefully**, so users with only the minimum aren't excluded, and still use all valid past information available to the prediction date without leaking later outcomes.
+- Validate performance separately in held-out patients with 3, 4, 5, 6+ prior heights and with 1, 2, 3+ prior cephs. Compare incremental mm MAE and calibrated prediction interval coverage vs a constant minimal-input baseline on **the same patients**, to avoid differences in patient selection driving claimed improvement.
+- More points may reduce uncertainty but do **not** guarantee better individual predictions. Scan technique, landmark reproducibility, time gaps, treatment status, radiographic magnification and variable timing matter. Longer observation span can be more informative than simply more closely spaced heights.
+- Future repeated cephs should allow estimating individual observed skeletal growth tempo, in addition to current Co–Gn and Co–Go. Maintain a distinct untreated-versus-treated analysis and update forecasts as new data become clinically available.
+- The current HTML form does not transmit data; no cloud storage, accounts, or patient-record persistence. For future production, add authorized privacy/security and data governance separately.
