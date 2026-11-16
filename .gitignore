@@ -1,0 +1,4 @@
+training/raw/
+**/__pycache__/
+validation/results.csv
+training/parity-cases.json
