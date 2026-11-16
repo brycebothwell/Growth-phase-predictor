@@ -1,0 +1,315 @@
+{
+  "seed": 20261116,
+  "source_counts": {
+    "Berkeley": {
+      "participants": 136,
+      "rows": 4884
+    },
+    "Harpenden": {
+      "participants": 701,
+      "rows": 8098
+    }
+  },
+  "exclusions": {
+    "Berkeley": {
+      "included": 101,
+      "unstable_reference": 27,
+      "unbracketed": 8
+    },
+    "Harpenden": {
+      "coverage": 587,
+      "unbracketed": 27,
+      "included": 71,
+      "implausible_velocity": 4,
+      "unstable_reference": 12
+    }
+  },
+  "splits": {
+    "male": {
+      "Berkeley": {
+        "train": 33,
+        "calibration": 11,
+        "test": 12
+      },
+      "Harpenden": {
+        "train": 26,
+        "calibration": 8,
+        "test": 10
+      }
+    },
+    "female": {
+      "Berkeley": {
+        "train": 27,
+        "calibration": 9,
+        "test": 9
+      },
+      "Harpenden": {
+        "train": 16,
+        "calibration": 5,
+        "test": 6
+      }
+    }
+  },
+  "models": {
+    "male": {
+      "parameters": {
+        "max_depth": 7,
+        "min_samples_leaf": 10
+      },
+      "train_cv_mae_months": 6.3256146239332125,
+      "baseline_age": 13.707491525423617,
+      "calibration_radius_months": 24.5674398915678,
+      "calibration_participants": 19,
+      "cv_candidates": [
+        {
+          "mae_months": 8.6871637361783,
+          "max_depth": 3,
+          "min_samples_leaf": 10
+        },
+        {
+          "mae_months": 7.194963993322105,
+          "max_depth": 5,
+          "min_samples_leaf": 10
+        },
+        {
+          "mae_months": 6.3256146239332125,
+          "max_depth": 7,
+          "min_samples_leaf": 10
+        },
+        {
+          "mae_months": 7.292028456374155,
+          "max_depth": 5,
+          "min_samples_leaf": 20
+        }
+      ],
+      "cross_cohort_development": {
+        "Berkeley_to_other": {
+          "train_children": 33,
+          "evaluation_children": 26,
+          "mae_months": 5.922963663611738
+        },
+        "Harpenden_to_other": {
+          "train_children": 26,
+          "evaluation_children": 33,
+          "mae_months": 7.518084598825505
+        }
+      }
+    },
+    "female": {
+      "parameters": {
+        "max_depth": 7,
+        "min_samples_leaf": 10
+      },
+      "train_cv_mae_months": 7.750491671823308,
+      "baseline_age": 11.473976744185965,
+      "calibration_radius_months": 26.88434897295795,
+      "calibration_participants": 14,
+      "cv_candidates": [
+        {
+          "mae_months": 8.96619080629232,
+          "max_depth": 3,
+          "min_samples_leaf": 10
+        },
+        {
+          "mae_months": 8.094527740413117,
+          "max_depth": 5,
+          "min_samples_leaf": 10
+        },
+        {
+          "mae_months": 7.750491671823308,
+          "max_depth": 7,
+          "min_samples_leaf": 10
+        },
+        {
+          "mae_months": 8.048634299189342,
+          "max_depth": 5,
+          "min_samples_leaf": 20
+        }
+      ],
+      "cross_cohort_development": {
+        "Berkeley_to_other": {
+          "train_children": 27,
+          "evaluation_children": 16,
+          "mae_months": 11.889090859614086
+        },
+        "Harpenden_to_other": {
+          "train_children": 16,
+          "evaluation_children": 27,
+          "mae_months": 9.099058230122136
+        }
+      }
+    }
+  },
+  "test_metrics": {
+    "male": {
+      "all": {
+        "participants": 22,
+        "windows": 2425,
+        "mae_months_subject_weighted": 8.74392970001723,
+        "mae_bootstrap95_months": [
+          5.912610824907928,
+          12.564225991226525
+        ],
+        "bias_months_subject_weighted": -2.489436511236477,
+        "within6months_subject_weighted": 0.5239053109587876,
+        "coverage_subject_weighted": 0.9213226872936928,
+        "baseline_mae_months_subject_weighted": 12.116755007703832
+      },
+      "three_points": {
+        "participants": 22,
+        "windows": 690,
+        "mae_months_subject_weighted": 9.118388860329384,
+        "mae_bootstrap95_months": [
+          6.263139425993698,
+          12.924996888614128
+        ],
+        "bias_months_subject_weighted": -2.445512533939058,
+        "within6months_subject_weighted": 0.514859112837054,
+        "coverage_subject_weighted": 0.9161716959511078,
+        "baseline_mae_months_subject_weighted": 12.116755007703832
+      },
+      "three_points_before_peak": {
+        "participants": 22,
+        "windows": 417,
+        "mae_months_subject_weighted": 9.982509675556269,
+        "mae_bootstrap95_months": [
+          6.829927017661136,
+          14.001609764021758
+        ],
+        "bias_months_subject_weighted": -1.471319074998981,
+        "within6months_subject_weighted": 0.47286811385727834,
+        "coverage_subject_weighted": 0.895739676989677,
+        "baseline_mae_months_subject_weighted": 12.116755007703832
+      },
+      "four_plus": {
+        "participants": 22,
+        "windows": 1735,
+        "mae_months_subject_weighted": 8.607319284562807,
+        "mae_bootstrap95_months": [
+          5.787345373157006,
+          12.425044775396657
+        ],
+        "bias_months_subject_weighted": -2.5078493427451334,
+        "within6months_subject_weighted": 0.5259566244656301,
+        "coverage_subject_weighted": 0.9231924407523457,
+        "baseline_mae_months_subject_weighted": 12.116755007703832
+      },
+      "simultaneous_all_windows_coverage": 0.7727272727272727,
+      "by_cohort": {
+        "Berkeley": {
+          "participants": 12,
+          "windows": 384,
+          "mae_months_subject_weighted": 8.636525484041734,
+          "mae_bootstrap95_months": [
+            5.1836895072783085,
+            13.417264271253137
+          ],
+          "bias_months_subject_weighted": -3.576335553278661,
+          "within6months_subject_weighted": 0.5234375,
+          "coverage_subject_weighted": 0.921875,
+          "baseline_mae_months_subject_weighted": 14.3800338983047
+        },
+        "Harpenden": {
+          "participants": 10,
+          "windows": 306,
+          "mae_months_subject_weighted": 9.696624911874569,
+          "mae_bootstrap95_months": [
+            5.4331789904059775,
+            15.821213855316923
+          ],
+          "bias_months_subject_weighted": -1.0885249107315347,
+          "within6months_subject_weighted": 0.5045650482415189,
+          "coverage_subject_weighted": 0.9093277310924369,
+          "baseline_mae_months_subject_weighted": 9.400820338982793
+        }
+      }
+    },
+    "female": {
+      "all": {
+        "participants": 15,
+        "windows": 1549,
+        "mae_months_subject_weighted": 9.072494598769255,
+        "mae_bootstrap95_months": [
+          5.805838580507472,
+          13.070810350047608
+        ],
+        "bias_months_subject_weighted": 0.7350353658911655,
+        "within6months_subject_weighted": 0.46522888316223143,
+        "coverage_subject_weighted": 0.9439644012944984,
+        "baseline_mae_months_subject_weighted": 11.925469767441673
+      },
+      "three_points": {
+        "participants": 15,
+        "windows": 448,
+        "mae_months_subject_weighted": 9.06294581450225,
+        "mae_bootstrap95_months": [
+          5.95759471948069,
+          12.647957659216672
+        ],
+        "bias_months_subject_weighted": 0.5542773769200112,
+        "within6months_subject_weighted": 0.457247333276745,
+        "coverage_subject_weighted": 0.9479797979797979,
+        "baseline_mae_months_subject_weighted": 11.925469767441673
+      },
+      "three_points_before_peak": {
+        "participants": 15,
+        "windows": 103,
+        "mae_months_subject_weighted": 8.631866787613617,
+        "mae_bootstrap95_months": [
+          6.632001687296613,
+          10.76025190104835
+        ],
+        "bias_months_subject_weighted": 1.230867375556814,
+        "within6months_subject_weighted": 0.41514652014652015,
+        "coverage_subject_weighted": 1.0,
+        "baseline_mae_months_subject_weighted": 11.925469767441673
+      },
+      "four_plus": {
+        "participants": 15,
+        "windows": 1101,
+        "mae_months_subject_weighted": 9.084947076391032,
+        "mae_bootstrap95_months": [
+          5.705291143966873,
+          13.219862665368527
+        ],
+        "bias_months_subject_weighted": 0.8115164489921526,
+        "within6months_subject_weighted": 0.468320138838956,
+        "coverage_subject_weighted": 0.9421294047811775,
+        "baseline_mae_months_subject_weighted": 11.925469767441673
+      },
+      "simultaneous_all_windows_coverage": 0.7333333333333333,
+      "by_cohort": {
+        "Berkeley": {
+          "participants": 9,
+          "windows": 288,
+          "mae_months_subject_weighted": 10.181026523419801,
+          "mae_bootstrap95_months": [
+            5.947519599728963,
+            15.518707387338614
+          ],
+          "bias_months_subject_weighted": 3.294531443580315,
+          "within6months_subject_weighted": 0.4513888888888889,
+          "coverage_subject_weighted": 0.9166666666666666,
+          "baseline_mae_months_subject_weighted": 12.39711627906953
+        },
+        "Harpenden": {
+          "participants": 6,
+          "windows": 160,
+          "mae_months_subject_weighted": 7.385824751125922,
+          "mae_bootstrap95_months": [
+            4.603247780987029,
+            10.167211417026964
+          ],
+          "bias_months_subject_weighted": -3.5561037230704438,
+          "within6months_subject_weighted": 0.4660349998585292,
+          "coverage_subject_weighted": 0.9949494949494949,
+          "baseline_mae_months_subject_weighted": 11.217999999999886
+        }
+      }
+    }
+  },
+  "data_sha256": {
+    "berkeley.rda": "0e32e47ea1b9076ff4e46cea7d10f7a8b2efe7c369635ef329f0110856ce5d6e",
+    "harpenden.tab": "f207daae84defabcae42d66e17214ba3d5b05c99c1074aac3f6a56804eb6bbce"
+  }
+}
