@@ -108,7 +108,7 @@ Calibration used each child's maximum absolute error over all eligible windows, 
 
 ## Technical checks and reproducibility
 
-Python-to-JavaScript inference matched exactly on 141 sampled held-out cases, including float32 feature conversion for tree traversal. Duplicate ages, insufficient spacing, unsupported ages and the seven-point selection limit were tested. JavaScript syntax and UI element references were checked. A full local Chromium interaction test was attempted but the environment blocked browser startup; no successful rendered-browser QA is claimed on that basis.
+Python-to-JavaScript inference matched exactly on 141 sampled held-out cases, including float32 feature conversion for tree traversal. Duplicate ages, insufficient spacing, unsupported ages and the seven-point selection limit were tested. JavaScript syntax and UI element references were checked. The environment blocked local Chromium startup. Subsequent live cloud-browser testing succeeded after publication: the trained beta loaded its model, produced the example result, recalculated after changing sex, hid stale output on input changes, and rejected an incomplete added observation. The original default calculator was also exercised successfully and the beta link verified. Mobile viewport rendering was not separately verified.
 
 ```
 python -m pip install numpy pandas scipy scikit-learn rdata
