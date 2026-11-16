@@ -1,29 +1,40 @@
-# Growth Phase Predictor
+# PHV Calculator / Growth Phase Predictor
 
-### [Open the website](https://brycebothwell.github.io/Growth-phase-predictor/)
+**Height-only research software. No clinical validity claim.**
 
-> Experimental research prototype. No validated phase confidence or clinical treatment recommendation.
+- [Open the existing height-only calculator](https://brycebothwell.github.io/Growth-phase-predictor/)
+- [Try the Berkeley + Harpenden trained beta](https://brycebothwell.github.io/Growth-phase-predictor/trained.html)
+- [Read the current roadmap](ROADMAP.md)
+- [Read the consolidated project history and requirements](PROJECT_CONTEXT.md)
+- [Read actual training and test results](training/README.md)
 
-## [Oregon Growth Study — research data lab](oregon-data-lab.html)
+## Current decision — 16 November 2026
 
-Import authorized deidentified individual height observations from the Oregon Growth Study (or other longitudinal cohorts) locally in your browser. No actual Oregon heights are currently bundled; the public AAOF archive primarily offers cephalometric records. [Blank CSV template](oregon-template.csv).
+The first model trained on both Berkeley and Harpenden is complete, but it **did not improve on the existing calculator on the same held-out three-point cases**. Its nominal 90% simultaneous uncertainty target was also missed. The current height-only calculator therefore remains the default; the trained model is a separate research beta.
 
-## 📌 [START HERE — PINNED ROADMAP and next steps for real longitudinal data](ROADMAP.md)
+| Same held-out test | Existing v1 MAE | Trained v2 MAE | Test children |
+|---|---:|---:|---:|
+| Boys, three heights | 8.6 months | 9.1 months | 22 |
+| Girls, three heights | 8.9 months | 9.1 months | 15 |
 
-This GitHub repository is dedicated to the Growth Curve Calculator, separate from the Masters Research thesis.
+The reference is a peak from a smoothed complete trajectory, not perfect biological ground truth. These figures use different participants, input windows and reference criteria from the first exploratory Berkeley report; compare models only within the same protocol. This project is separate from the OHSU master's thesis.
 
-Current phase: obtain longitudinal data, train the algorithm and calibrate probabilities. [Detailed data-access instructions](ROADMAP.md#next-step--real-longitudinal-growth-data).
+## What is and is not trained
 
-Never upload patient identifiers or restricted longitudinal cohort records to this public repository.
-## Oregon Growth Study pilot update (9 Nov 2026)
+**Default v1:** manually specified candidate curves fitted to the entered measurements. Its male PHV-age prior uses Grau's published Oregon summary (51 boys; mean 13.54 years, SD 1.12). V1 was not trained on individual Berkeley, Harpenden or Oregon records. Displayed weights are not calibrated clinical probabilities.
 
-The published 1977 Oregon Child Study Clinic report by Jorge Grau provides an **actual male PHV age summary** from 51 boys (mean age 13.54 years, SD 1.12 years, plus an 11-bin age-at-peak distribution). It is now displayed in the [Oregon Data Lab](oregon-data-lab.html) and used only as an **experimental male PHV-age prior** in the main calculator. Source: https://digitalcollections.ohsu.edu/record/1721/files/2424_etd.pdf — see [machine-readable provenance](oregon-published-reference.json).
+**Beta v2:** separate male/female random forests fitted to individual height histories in both Berkeley and Harpenden. Among 172 eligible children, 102 were used for training, 33 for calibration and 37 for testing, with all windows of a child kept together. Trees do not use cephalometric data, Tanner stages or future input heights. Reference outcomes use full histories only during offline research evaluation.
 
-**The Oregon person-level stature trajectories are NOT yet publicly available in a usable dataset. No Oregon height-by-age rows have been imported and the model is NOT trained/validated on those individual records.** [Blank import schema](oregon-template.csv). Please request the original records from the OHSU/AAOF custodians before a true data-trained version.
+## Interface and privacy
 
-## Height-only calculator (restored 16 Nov 2026)
+Both interfaces use date of birth, reference sex and at least three dated heights. Cephalometric forms and mandibular forecasts are not active features. All entered data are processed in the browser, without upload or persistent storage. The beta supports up to seven recent heights within its documented age/spacing domain. Additional observations do not guarantee improvement.
 
-The calculator accepts **3 or more dated height measurements**, date of birth and sex. It displays interval height velocities, height and velocity plots, and experimental PHV estimates. The cephalometric input panel and mandibular summaries have been removed by restoring the previous height-only interface. The height prediction algorithm is unchanged.
+## Research materials
 
-Older mandibular-development sections in the roadmap are historical proposals, outside the current scope.
+- [Training pipeline and evaluation scripts](training/)
+- [Prior v1 provenance audit and preliminary Berkeley benchmark](validation/)
+- [Archived pre-v2 roadmap](archive/ROADMAP-pre-v2.md)
+- [Oregon longitudinal data explorer](oregon-data-lab.html): descriptive import and quality checks, not a trained prediction model.
+- [Oregon aggregate reference provenance](oregon-published-reference.json)
 
+No individual Oregon height dataset has been imported. Source: https://digitalcollections.ohsu.edu/record/1721/files/2424_etd.pdf . Berkeley and Harpenden source details and exact data checksums are in the training report. Do not commit identifiable patient information or restricted records to this public repository.
