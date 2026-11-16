@@ -1,0 +1,54 @@
+{
+  "male": {
+    "Berkeley_to_Harpenden": {
+      "source_children": 56,
+      "test_children": 44,
+      "source_cv_mae_months": 6.475022764609324,
+      "params": {
+        "max_depth": 7,
+        "min_samples_leaf": 10
+      },
+      "three_point_mae_months": 8.195391822828219,
+      "bias_months": -0.7271427798040726,
+      "source_mean_baseline_mae_months": 9.945214285714325
+    },
+    "Harpenden_to_Berkeley": {
+      "source_children": 44,
+      "test_children": 56,
+      "source_cv_mae_months": 5.428409630827401,
+      "params": {
+        "max_depth": 7,
+        "min_samples_leaf": 10
+      },
+      "three_point_mae_months": 8.226100852733806,
+      "bias_months": 2.719841295111514,
+      "source_mean_baseline_mae_months": 12.303233766233628
+    }
+  },
+  "female": {
+    "Berkeley_to_Harpenden": {
+      "source_children": 45,
+      "test_children": 27,
+      "source_cv_mae_months": 8.17983743245804,
+      "params": {
+        "max_depth": 7,
+        "min_samples_leaf": 10
+      },
+      "three_point_mae_months": 10.135546078845955,
+      "bias_months": -8.645415654629952,
+      "source_mean_baseline_mae_months": 12.81999999999984
+    },
+    "Harpenden_to_Berkeley": {
+      "source_children": 27,
+      "test_children": 45,
+      "source_cv_mae_months": 6.194947092169496,
+      "params": {
+        "max_depth": 7,
+        "min_samples_leaf": 10
+      },
+      "three_point_mae_months": 8.568747707776362,
+      "bias_months": 6.216435935787762,
+      "source_mean_baseline_mae_months": 12.059624691357898
+    }
+  }
+}
